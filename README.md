@@ -10,7 +10,7 @@
 
 conda activate ner
 
-python main.py -n 中国北京海淀区飞图时代电力科技有限公司 -d workspace\output-dict
+python main.py -n 中国北京海淀区飞图时代电力科技有限公司 -d workspace\output-dict  
 python main.py -n 中国北京海淀区飞图时代电力科技有限公司 -d dict -dn dict-country.csv -dp dict-province.csv -ds dict-city.csv -dx dict-county.csv -db dict-suffix.csv
 
 ## 使用
