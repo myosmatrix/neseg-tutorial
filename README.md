@@ -25,7 +25,7 @@ docker build -t python3-neseg .
 
 使用镜像：
 
-docker run -it --rm --name python3-neseg-01 \
+docker run -it --rm --name py3-neseg-01 \
     -p 8888:8888 python3-neseg \
     jupyter notebook --ip 0.0.0.0 --notebook-dir . --allow-root
 
