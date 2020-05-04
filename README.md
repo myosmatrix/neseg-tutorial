@@ -8,10 +8,26 @@
 
 ## 开发环境
 
+### conda
+
+conda create -n ner  
 conda activate ner
 
 python main.py -n 中国北京海淀区飞图时代电力科技有限公司 -d workspace\output-dict
 python main.py -n 中国北京海淀区飞图时代电力科技有限公司 -d dict -dn dict-country.csv -dp dict-province.csv -ds dict-city.csv -dx dict-county.csv -db dict-suffix.csv
+
+### docker
+
+构建镜像：
+
+docker build -f Dockerfile-notebook -t python3-notebook-pandas .  
+docker build -t python3-neseg .  
+
+使用镜像：
+
+docker run -it --rm --name python3-neseg-01 \
+    -p 8888:8888 python3-neseg \
+    jupyter notebook --ip 0.0.0.0 --notebook-dir . --allow-root
 
 ## 使用
 
