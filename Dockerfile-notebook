@@ -1,0 +1,10 @@
+FROM python:3
+LABEL description="Python3 + notebook + pandas" version="0.1" owner="huhongjun@gmail.com"
+
+WORKDIR /usr/src/app
+COPY requirements-notebook requirements
+RUN pip install --no-cache-dir -r requirements
+
+EXPOSE 8888
+CMD [ "jupyter notebook --ip 0.0.0.0 --notebook-dir /usr/src/app --allow-root" ]
+ 
