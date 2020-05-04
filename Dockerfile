@@ -1,4 +1,4 @@
-FROM python3-notebook-pandas
+FROM huhongjun/neseg-tutorial:notebook
 LABEL description="NERSEG Python" version="0.1" owner="huhongjun@gmail.com"
 
 WORKDIR /usr/src/app
