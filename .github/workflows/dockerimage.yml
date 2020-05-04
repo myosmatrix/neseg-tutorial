@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image(python3-notebook-pandas)
+      run: docker build . --file Dockerfile-notebook -t python3-notebook-pandas
+    - name: Push to Docker Hub
+      env:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        mtag: $(date +%s)
+      run: |
+        sudo docker login --username=${ username } registry.cn-beijing.aliyuncs.com --password=${{ password }}
+        sudo docker docker build . --file Dockerfile --tag huhongjun/python3-neseg:${{ mtag }}
+        sudo docker push huhongjun/python3-neseg:${{ mtag }}
