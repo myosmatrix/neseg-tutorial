@@ -22,6 +22,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         mtag: $(date +%s)
       run: |
-        sudo docker login --username=${ username } registry.cn-beijing.aliyuncs.com --password=${{ password }}
+        sudo docker login --username=${ username } registry.cn-beijing.aliyuncs.com --password=${ password }
         sudo docker docker build . --file Dockerfile --tag huhongjun/python3-neseg:${{ mtag }}
         sudo docker push huhongjun/python3-neseg:${{ mtag }}
