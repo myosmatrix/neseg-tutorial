@@ -32,22 +32,22 @@ NESEG Module Tutorial;
 ### docker
 
 构建镜像：
-    // 基于python:3安装notebook构建python3-notebook-pandas
+    // 基于python:3安装notebook构建huhongjun/neseg-turial:notebook
     docker build \
         -f Dockerfile-notebook \
-        -t python3-notebook-pandas .  
+        -t huhongjun/neseg-turial:notebook .
 
-    // 基于python3-notebook-pandas安装neseg构建neseg-tutorial
+    // 基于python3-notebook-pandas安装neseg构建huhongjun/neseg-tutorial
     docker build \
         -f Dockerfile \
-        -t neseg-tutorial .  
+        -t huhongjun/neseg-tutorial .  
 
 使用镜像：
 
     docker run -it --rm \
         --name py3-neseg-01 \
         -p 8888:8888 \
-        neseg-tutorial \
+        huhongjun/neseg-tutorial \
         COMMAND: jupyter notebook --ip 0.0.0.0 --notebook-dir . --allow-root
 
 ## 使用
